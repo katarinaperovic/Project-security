@@ -1,0 +1,45 @@
+<form class="register-form" *ngIf="user">
+    <div *ngIf="!user.firmName && !user.pib">
+      <div class="form-row">
+        <div class="form-column">
+          <label for="first-name">First name:</label>
+          <p id="first-name" class="indented-text">{{ user.name }}</p>
+        </div>
+        <div class="form-column">
+          <label for="last-name">Last name:</label>
+          <p id="last-name" class="indented-text">{{ user.surname }}</p>
+        </div>
+      </div>
+    </div>
+  
+   
+    <div *ngIf="user.firmName && user.pib">
+      <div class="form-row">
+        <div class="form-column">
+          <label for="firm-name">Firm name:</label>
+          <p id="firm-name" class="indented-text">{{ user.firmName }}</p>
+        </div>
+        <div class="form-column">
+          <label for="pib">PIB:</label>
+          <p id="pib" class="indented-text">{{ user.pib }}</p>
+        </div>
+      </div>
+    </div>
+  
+ 
+    <div class="form-row">
+      <div class="form-column">
+        <label for="street">Street:</label>
+          <p id="street" class="indented-text">{{ user.address.street }}</p>
+      </div>
+      <div class="form-column">
+        <label for="city">City:</label>
+          <p id="city" class="indented-text">{{ user.address.city }}</p>
+      </div>
+      <div class="form-column">
+        <label for="state">State:</label>
+          <p id="state" class="indented-text">{{ user.address.state }}</p>
+      </div>
+    </div>
+  </form>
+  

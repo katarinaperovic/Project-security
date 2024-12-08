@@ -1,0 +1,98 @@
+<form class="register-form">
+  <h3>Join us!</h3>
+  
+  <div class="form-row">
+    <div class="form-column">
+      <label for="registration-type">Registration type:</label>
+      <select id="registration-type" name="registration-type" [(ngModel)]="registrationType" (change)="resetFields()">
+        <option value="individual">Individual</option>
+        <option value="company">Company</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- Individual Registration Fields -->
+  <div *ngIf="registrationType === 'individual'">
+    <div class="form-row">
+      <div class="form-column">
+        <label for="first-name">First name:</label>
+        <input type="text" id="first-name" name="first-name" required [(ngModel)]="user.name" />
+      </div>
+      <div class="form-column">
+        <label for="last-name">Last name:</label>
+        <input type="text" id="last-name" name="last-name" required [(ngModel)]="user.surname" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Company Registration Fields -->
+  <div *ngIf="registrationType === 'company'">
+    <div class="form-row">
+      <div class="form-column">
+        <label for="firm-name">Firm name:</label>
+        <input type="text" id="firm-name" name="firm-name" required [(ngModel)]="user.firmName" />
+      </div>
+      <div class="form-column">
+        <label for="pib">PIB:</label>
+        <input type="text" id="pib" name="pib" required [(ngModel)]="user.pib" />
+      </div>
+    </div>
+  </div>
+  
+  <!-- Common Registration Fields -->
+  <div class="form-row">
+    <div class="form-column">
+      <label for="street">Street:</label>
+      <input type="text" id="street" name="street" required [(ngModel)]="street" />
+    </div>
+    <div class="form-column">
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required [(ngModel)]="city" />
+    </div>
+    <div class="form-column">
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" required [(ngModel)]="state" />
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-column">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required [(ngModel)]="user.email" />
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-column">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required [(ngModel)]="user.password" />
+    </div>
+
+    <div class="form-column">
+      <label for="confirmpassword">Confirm password:</label>
+      <input type="password" id="confirmpassword" name="confirmpassword" required [(ngModel)]="confirmPassword" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-column">
+      <label for="phone">Phone number:</label>
+      <input type="tel" id="phone" name="phone" required [(ngModel)]="user.phone" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-column">
+      <label for="package-type">Package type:</label>
+      <select id="package-type" name="package-type" [(ngModel)]="user.packageType">
+        <option value="BASIC">Basic</option>
+        <option value="STANDARD">Standard</option>
+        <option value="GOLD">Gold</option>
+      </select>
+    </div>
+  </div>
+
+  
+  
+  <button type="submit" (click)="register()">Register</button>
+</form>

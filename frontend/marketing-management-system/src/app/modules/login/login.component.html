@@ -1,0 +1,14 @@
+<form #form="ngForm" class="login-form" (ngSubmit)="login(form)">
+  <h2>Login</h2>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" [(ngModel)]="user.email" required/>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" [(ngModel)]="user.password" required/>
+  <div class="col-sm-12 mb-2">
+    <re-captcha id="recaptcha" name="recaptcha" (resolved)="onCaptchaResolved($event)" #recaptcha=ngModel [(ngModel)]="token" required [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" data-action="login"></re-captcha>
+    <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="invalid-feedback" >
+      <div *ngIf="recaptcha.errors?.['required']">This field is required.</div>
+    </div>
+  </div>
+  <button type="submit">Login</button>
+</form>

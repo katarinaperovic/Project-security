@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand" href="#">Marketing management system</a>
+ 
+  <div class="nav-right">
+   
+    <a class="nav-item nav-link"  *ngIf="isLoggedIn"
+      (click)="logout()">Logout</a>
+    <a class="nav-item nav-link" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!isLoggedIn">Login</a>
+    <a class="nav-item nav-link" [routerLink]="['/register']" routerLinkActive="active" *ngIf="!isLoggedIn">Register</a>
+    <a style="margin-left: 24px;" class="nav-item nav-link"  *ngIf="isLoggedIn && role === 'ROLE_ADMIN'"[routerLink]="['/permissions']" routerLinkActive="active" >Permissions</a>
+    <a style="margin-left: 24px;" class="nav-item nav-link"  *ngIf="isLoggedIn && role === 'ROLE_CLIENT'"[routerLink]="['/client-profile']" routerLinkActive="active" >Profile</a>
+  
+  </div>
+</nav>

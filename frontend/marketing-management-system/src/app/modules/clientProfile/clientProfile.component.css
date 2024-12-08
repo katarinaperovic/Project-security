@@ -1,0 +1,13 @@
+.indented-text {
+    margin-left: 15px; 
+  }
+  
+  .form-row {
+    margin-bottom: 15px; 
+  }
+  
+  .form-column label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
